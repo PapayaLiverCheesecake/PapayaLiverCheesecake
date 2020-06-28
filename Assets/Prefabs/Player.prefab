@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1796050829024134718}
+  - component: {fileID: 4104223866490661533}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -62,6 +63,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &4104223866490661533
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796050829024134719}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4085684142030044487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69,6 +84,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1796050829024134718}
     m_Modifications:
+    - target: {fileID: 2332757550715586133, guid: e7093fd40aafaa74d8bd04e45b236695,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332757550941138124, guid: e7093fd40aafaa74d8bd04e45b236695,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2332757551011287267, guid: e7093fd40aafaa74d8bd04e45b236695,
         type: 3}
       propertyPath: m_Volume
@@ -78,6 +103,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332757551011629854, guid: e7093fd40aafaa74d8bd04e45b236695,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2332757551014761763, guid: e7093fd40aafaa74d8bd04e45b236695,
         type: 3}
@@ -134,10 +164,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2332757551015250177, guid: e7093fd40aafaa74d8bd04e45b236695,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2332757551015250179, guid: e7093fd40aafaa74d8bd04e45b236695,
         type: 3}
       propertyPath: m_Name
       value: FPSControllerMine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332757551015250179, guid: e7093fd40aafaa74d8bd04e45b236695,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2332757551017655491, guid: e7093fd40aafaa74d8bd04e45b236695,
         type: 3}
