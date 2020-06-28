@@ -49,7 +49,7 @@ public class NPCMovement : MonoBehaviour
         }
         else if(Agent.remainingDistance <= 1.0f)
         {
-            Debug.Log("Distance is less than 1!");
+            //Debug.Log("Distance is less than 1!");
             //Start timer and wait
             DeltaTime += Time.deltaTime;
             /*if(DeltaTime >= WaitTime)
