@@ -9,28 +9,15 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class NPCMovement : MonoBehaviour
 {
-    
-
-    #region AnimationProperties
-    //public float degreesPerSecond = 15.0f;
-    // Rotation variables    
-    public float speed = 2f;
-    public float maxRotation = 45f;
-
-    // Position variables
-    public float amplitude = 0.5f;
-    public float frequency = 1f;
-    Vector3 posOffset = new Vector3();
-    Vector3 tempPos = new Vector3();
-    #endregion
-
-
     #region MovementProperties
     NavMeshAgent Agent;
     [SerializeField]
-    List<Vector3> PatrolPoints;
+    List<Point> PatrolPoints;
     int PatrolIndex;
     int PatrolIndexMax;
+
+    //Test, erase later
+    public GameObject player;
 
     [SerializeField]
     float WaitTime;
@@ -41,7 +28,7 @@ public class NPCMovement : MonoBehaviour
     void Start()
     {
         // Store the starting position & rotation of theobject
-        posOffset = transform.position;
+        //posOffset = transform.position;
 
         Agent = this.GetComponent<NavMeshAgent>();
 
@@ -53,14 +40,24 @@ public class NPCMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        IdleAnimation();
-        if(DeltaTime >= WaitTime)
+        //Agent.SetDestination(player.transform.position);
+        
+        if (DeltaTime >= WaitTime)
         {
             Patrol();
+            DeltaTime = 0f;
         }
-        //Updating time;
-        DeltaTime += Time.deltaTime;
-
+        else if(Agent.remainingDistance <= 1.0f)
+        {
+            Debug.Log("Distance is less than 1!");
+            //Start timer and wait
+            DeltaTime += Time.deltaTime;
+            /*if(DeltaTime >= WaitTime)
+            {
+                Debug.Log("Time is up! Move!");
+                Patrol();
+            }*/
+        }
     }
 
     #region Movement
@@ -70,7 +67,7 @@ public class NPCMovement : MonoBehaviour
     {
         if(PatrolIndexMax >= 1)
         {
-            Agent.SetDestination(PatrolPoints[PatrolIndex]);
+            Agent.SetDestination(PatrolPoints[PatrolIndex].transform.position);
             PatrolIndex = (PatrolIndex + 1) % PatrolIndexMax;
         }
         else
@@ -81,16 +78,4 @@ public class NPCMovement : MonoBehaviour
 
     #endregion
 
-    #region AnimationMethods
-    void IdleAnimation()
-    {
-        // spin around Y-Axis
-        //transform.Rotate(new Vector3(0f, Time.deltaTime * degreesPerSecond, 0f), Space.World);
-        transform.rotation = Quaternion.Euler(0f, maxRotation * Mathf.Sin(Time.time * speed), 0f);
-        // Float up/down with a Sin()
-        tempPos = posOffset;
-        tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
-        transform.position = tempPos;
-    }
-    #endregion
 }
