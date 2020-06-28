@@ -14,16 +14,22 @@ namespace PlayerInfo
         void Update()
         {
             if (holder.AreWeDone())
-                Loadlevel("EndScene");
+            {
+                StartCoroutine(WaitAndLoad());
+            }  
         }
 
-
-
+        IEnumerator WaitAndLoad()
+        {
+            yield return new WaitForSeconds(3.0f);
+            Loadlevel("EndScene");
+        }
         public void Loadlevel(string level)
         {
             SceneManager.LoadScene(level);
 
         }
+
     }
 
 }

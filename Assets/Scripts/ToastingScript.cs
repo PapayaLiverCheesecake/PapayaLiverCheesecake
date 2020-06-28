@@ -34,15 +34,6 @@ public class ToastingScript : MonoBehaviour
         return Physics.CheckBox(this.transform.position, new Vector3(6, 8, 6), Quaternion.identity, playerLayer);
     }
 
-    /*void OnTriggerEnter (Collider other)
-    {
-
-        if (other.transform == player)
-        {
-            isPlayerInRange = true;
-            Debug.Log("COLLIDED");
-        }
-    }*/
     IEnumerator theToasting()
     {
         m_AudioSource_Clink.Play();
