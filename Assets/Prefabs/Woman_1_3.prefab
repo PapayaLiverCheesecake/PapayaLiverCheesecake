@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1781841257653677892}
   - component: {fileID: 3026156454630478511}
   - component: {fileID: 5147559880919772655}
+  - component: {fileID: 929535510934750481}
   m_Layer: 0
   m_Name: Woman_1_3
   m_TagString: Untagged
@@ -139,6 +140,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &929535510934750481
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475833773223014659}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3.38, z: 3.05}
+  m_Center: {x: 0, y: 0.41, z: 0.49}
 --- !u!1 &4880707481878477845
 GameObject:
   m_ObjectHideFlags: 0
