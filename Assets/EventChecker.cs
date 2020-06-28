@@ -22,6 +22,8 @@ namespace PlayerInfo
         IEnumerator WaitAndLoad()
         {
             yield return new WaitForSeconds(3.0f);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             Loadlevel("EndScene");
         }
         public void Loadlevel(string level)
