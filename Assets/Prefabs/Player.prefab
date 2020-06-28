@@ -139,6 +139,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSControllerMine
       objectReference: {fileID: 0}
+    - target: {fileID: 2332757551017655491, guid: e7093fd40aafaa74d8bd04e45b236695,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332757551017655491, guid: e7093fd40aafaa74d8bd04e45b236695,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332757551017655491, guid: e7093fd40aafaa74d8bd04e45b236695,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332757551017655491, guid: e7093fd40aafaa74d8bd04e45b236695,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2332757551024946403, guid: e7093fd40aafaa74d8bd04e45b236695,
         type: 3}
       propertyPath: volume
