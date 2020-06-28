@@ -8,7 +8,7 @@ namespace PlayerInfo
     {
         public int ID { get; set; }
         public string Description { get; }
-        public bool QuestCompleted { get; }
+        public bool QuestCompleted { get; set; }
 
         public Quest(int _ID, string _Description)
         {

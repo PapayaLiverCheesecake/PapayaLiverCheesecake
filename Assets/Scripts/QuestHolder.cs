@@ -17,7 +17,7 @@ namespace PlayerInfo
 
     public class QuestHolder : MonoBehaviour
     {
-        List<Quest> QuestList;
+        public List<Quest> QuestList;
         
         public QuestHolder()
         {
@@ -33,7 +33,8 @@ namespace PlayerInfo
                 new Quest(7, "Drink with guest"),
                 new Quest(8, "Drink with guest"),
                 new Quest(9, "Drink with guest"),
-                new Quest(10, "Drink with guest")
+                new Quest(10, "Drink with guest"),
+                new Quest(11, "Drink with guest")
             };
         }
 
@@ -79,23 +80,36 @@ namespace PlayerInfo
         //Sets a quest to completed;
         public bool SetQuestBool(int _id, bool _toComplete)
         {
-            Found_Index f_ind = FindQuest(_id);
+            //Found_Index f_ind = FindQuest(_id);
 
-            if(f_ind.Found)
-            {
+            //if(f_ind.Found)
+            //{
                 //Grab info to update list element: int ID, string Description, bool QuestCompleted
-                int _questID = this.QuestList[f_ind.Index].ID;
-                string _questDescription = this.QuestList[f_ind.Index].Description;
-                bool _questCompleted = this.QuestList[f_ind.Index].QuestCompleted;
+                //int _questID = this.QuestList[_id -1].ID;
+                //string _questDescription = this.QuestList[_id - 1].Description;
+                //bool _questCompleted = this.QuestList[_id - 1].QuestCompleted;
                 
-                this.QuestList[f_ind.Index] = new Quest(_questID, _questDescription, _questCompleted);
+                this.QuestList[_id - 1].QuestCompleted = _toComplete;
 
                 return true;
-            }
-            else
+            //}
+            //else
+            //{
+             //   return false;
+            //}
+        }
+
+        public bool AreWeDone()
+        {
+            foreach(Quest _quest in QuestList)
             {
-                return false;
+                //If any of them are false, return false;
+                if (_quest.QuestCompleted == false)
+                    return false;
+                    
             }
+            //None of them are false, then return true
+            return true;
         }
     }
 

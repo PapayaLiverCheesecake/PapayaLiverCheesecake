@@ -17,6 +17,7 @@ public class NPCAnimation : MonoBehaviour
     Vector3 tempPos = new Vector3();
     #endregion
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,5 +43,6 @@ public class NPCAnimation : MonoBehaviour
 
     }
     #endregion
+
 
 }
