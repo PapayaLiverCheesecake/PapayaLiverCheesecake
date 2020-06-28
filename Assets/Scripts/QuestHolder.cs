@@ -15,7 +15,7 @@ namespace PlayerInfo
         public int Index { get; set; }
     }
 
-    public class QuestHolder
+    public class QuestHolder : MonoBehaviour
     {
         List<Quest> QuestList;
         
@@ -24,7 +24,16 @@ namespace PlayerInfo
             //Since we do not have a save point right now. When initialized we can make the QuestHolder get the first quest which tells the player what to do.
             QuestList = new List<Quest>()
             {
-                new Quest(1, "Drink with all the guests!")
+                new Quest(1, "Drink with guest"),
+                new Quest(2, "Drink with guest"),
+                new Quest(3, "Drink with guest"),
+                new Quest(4, "Drink with guest"),
+                new Quest(5, "Drink with guest"),
+                new Quest(6, "Drink with guest"),
+                new Quest(7, "Drink with guest"),
+                new Quest(8, "Drink with guest"),
+                new Quest(9, "Drink with guest"),
+                new Quest(10, "Drink with guest")
             };
         }
 
