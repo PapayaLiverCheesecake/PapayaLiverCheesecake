@@ -259,6 +259,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if (body == null || body.isKinematic)
             {
+                Debug.Log("No body found!");
                 return;
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
