@@ -33,7 +33,7 @@ namespace Player
                 */
                 playerStates.Add(tempArray[i]);
             }
-            int k = 0;
+            
             foreach (AbstractState state in playerStates)
             {
                 fsmStates.Add(state.StateType, state);
@@ -62,6 +62,15 @@ namespace Player
             currentState.EnterState();
 
             return;
+        }
+        public void EnterState(int state)
+        {
+            if (fsmStates.ContainsKey(state))
+            {
+                this.EnterState(fsmStates[state]);
+            }
+            else
+                Debug.Log("State not found when entering from: " + currentState.ToString());
         }
     }
 

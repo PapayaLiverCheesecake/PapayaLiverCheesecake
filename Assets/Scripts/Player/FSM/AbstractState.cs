@@ -25,6 +25,11 @@ namespace Player
         */
         [SerializeField]
         private CameraProperties properties;
+        [SerializeField]
+        protected CharacterController controller;
+        protected FSM fsmRef;
+
+        public bool isGrounded;
 
         enum Position
         {
@@ -36,7 +41,12 @@ namespace Player
         }
         public int StateType { get; protected set; }
         Position pos = Position.NONE;
-        
+
+        protected void OnEnable()
+        {
+            isGrounded = controller.isGrounded;
+            fsmRef = this.GetComponent<FSM>();
+        }
         //Each state is different and includes a different implementation of Update State.
         public abstract void UpdateState();
 
@@ -66,6 +76,13 @@ namespace Player
             properties.Player.rotation = Quaternion.Euler(0, properties.mouseX, 0);
         }
         #endregion
+
+        protected void PlayerGravity()
+        {
+            properties.velocity.y += properties.gravity * Time.deltaTime;
+            //t^2 is acquired by multiplying by deltaTime twice.
+            controller.Move(properties.velocity * Time.deltaTime);
+        }
 
     }
 

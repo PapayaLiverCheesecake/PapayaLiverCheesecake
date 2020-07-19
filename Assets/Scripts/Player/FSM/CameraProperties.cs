@@ -14,6 +14,9 @@ namespace Player
         public  float mouseX, mouseY;
         #endregion
 
+        public Vector3 velocity;
+        public float gravity = -20f;
+
 
     }
 
