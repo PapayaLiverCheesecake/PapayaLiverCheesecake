@@ -7,6 +7,7 @@ namespace Player
     public class IdleState : AbstractState
     {
         Animator playerAnim;
+        
 
         private new void OnEnable()
         {

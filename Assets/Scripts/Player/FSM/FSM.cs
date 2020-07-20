@@ -37,7 +37,6 @@ namespace Player
             foreach (AbstractState state in playerStates)
             {
                 fsmStates.Add(state.StateType, state);
-                
             }
 
         }

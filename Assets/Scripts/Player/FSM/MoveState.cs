@@ -10,7 +10,6 @@ namespace Player
         //Make Speed private when finalized. ***************
         public float Speed;
         
-
         private new void OnEnable()
         {
             base.OnEnable();

@@ -24,12 +24,12 @@ namespace Player
         #endregion
         */
         [SerializeField]
-        private CameraProperties properties;
+        private PlayerProperties properties;
         [SerializeField]
         protected CharacterController controller;
         protected FSM fsmRef;
 
-        public bool isGrounded;
+        //public bool isGrounded;
 
         enum Position
         {
@@ -39,12 +39,12 @@ namespace Player
             UPDATING,
             EXITING
         }
-        public int StateType { get; protected set; }
+        public int StateType; //{ get; protected set; }
         Position pos = Position.NONE;
 
         protected void OnEnable()
         {
-            isGrounded = controller.isGrounded;
+            //isGrounded = controller.isGrounded;
             fsmRef = this.GetComponent<FSM>();
         }
         //Each state is different and includes a different implementation of Update State.
@@ -79,6 +79,18 @@ namespace Player
 
         protected void PlayerGravity()
         {
+            properties.isGrounded = Physics.CheckSphere(properties.groundCheck.position, properties.groundCheckRad, properties.groundMask);
+            if (properties.isGrounded && properties.velocity.y < 0)
+            {
+                properties.velocity.y = -2f;       //Why not 0? forces player on the ground when there might be some distance still above ground.
+                
+            }
+
+            /*if (Input.GetButtonDown("Jump") && properties.isGrounded)
+            {
+                properties.velocity.y = Mathf.Sqrt(properties.jumpHeight * -2f * properties.gravity);
+                
+            }*/
             properties.velocity.y += properties.gravity * Time.deltaTime;
             //t^2 is acquired by multiplying by deltaTime twice.
             controller.Move(properties.velocity * Time.deltaTime);
