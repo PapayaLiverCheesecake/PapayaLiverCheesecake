@@ -19,18 +19,14 @@ namespace Player
         public override void EnterState()
         {
             base.EnterState();
+            ForcePlayerToGround();
         }
 
         public override void UpdateState()
         {
             CheckCameraInput();
             CheckControllerInput();
-
-        }
-
-        void Start()
-        {
-            
+            CheckInput();
         }
 
 
@@ -46,9 +42,21 @@ namespace Player
             if (x == 0f && y == 0f)   //No input
                 fsmRef.EnterState(0);   //Back to idle
 
-            //Temporary
-            PlayerGravity();
 
+        }
+        private void CheckInput()
+        {
+            //Player is falling? Then fall
+            properties.isGrounded = Physics.CheckSphere(properties.groundCheck.position, properties.groundCheckRad, properties.groundMask);
+            if (!properties.isGrounded)
+            {
+                fsmRef.EnterState(3);
+            }
+            //Jumping is detected, JUMP!
+            else if (Input.GetButtonDown("Jump") && properties.isGrounded)
+            {
+                fsmRef.EnterState(2);
+            }
         }
 
     }
