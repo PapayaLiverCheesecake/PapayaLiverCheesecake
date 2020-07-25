@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Player
+namespace PlayerInfo
 {
     //[CreateAssetMenu(fileName = "PlayerProperties", menuName = "ScriptableObjects/PlayerPropertiesSO", order = 1)]
     public class PlayerProperties : MonoBehaviour
@@ -22,7 +22,10 @@ namespace Player
         public Transform groundCheck;
         public float groundCheckRad = 0.4f; //Radius of sphere used to check.
         public LayerMask groundMask;    //Allows us to control which objects the sphere checks for.
+        public LayerMask objectMask;    //Sets objects that are pickable.
         #endregion
+
+        public List<Object> Inventory = new List<Object>();
 
 
     }

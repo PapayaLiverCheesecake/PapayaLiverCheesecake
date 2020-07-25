@@ -38,12 +38,18 @@ namespace Player
             Vector3 playerMovement = transform.right * x + transform.forward * y; //Localized, for direction player is facing
                                                                                       
             controller.Move(Vector3.Normalize(playerMovement) * Speed * Time.deltaTime);  //Built in function to character controller.
-                                                                                          //Playing animations
-            if (x == 0f && y == 0f)   //No input
-                fsmRef.EnterState(0);   //Back to idle
+
+            if (Input.GetButtonDown("Fire2"))    //Right click, or F
+            {
+                Debug.Log("Pressed F or right Click!");
+                fsmRef.EnterState(4);
+            } 
+            else if (x == 0f && y == 0f)   //No input
+                    fsmRef.EnterState(0);   //Back to idle
 
 
         }
+        //World input, not player's.
         private void CheckInput()
         {
             //Player is falling? Then fall

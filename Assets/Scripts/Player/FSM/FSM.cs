@@ -7,6 +7,7 @@ namespace Player
     public class FSM : MonoBehaviour
     {
         AbstractState currentState;
+        public int previousState { get; protected set;}
         
         List<AbstractState> playerStates;
         Dictionary<int, AbstractState> fsmStates;
@@ -53,15 +54,22 @@ namespace Player
 
         private void EnterState(AbstractState state)
         {
-            if (currentState != null)
-                currentState.ExitState();
 
+            if (currentState != null)
+            {
+                previousState = currentState.StateType;
+                currentState.ExitState();
+            }
+            
             currentState = state;
 
             currentState.EnterState();
 
             return;
         }
+        //At first, it is not obvious of why this is useful (to me, at least), which is why it wasn't there before.
+        //This allows you to reference a state from outside of the class easily without needing exact references to the state
+        //you want.
         public void EnterState(int state)
         {
             if (fsmStates.ContainsKey(state))

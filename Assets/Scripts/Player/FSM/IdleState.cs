@@ -31,7 +31,12 @@ namespace Player
 
             //Player is falling? Then fall
             properties.isGrounded = Physics.CheckSphere(properties.groundCheck.position, properties.groundCheckRad, properties.groundMask);
-            if (!properties.isGrounded)
+            if(Input.GetButtonDown("Fire2"))    //Right click, or F
+            {
+                Debug.Log("<color=yellow>Pressed F or right Click!</color>");
+                fsmRef.EnterState(4);
+            }
+            else if (!properties.isGrounded)
             {
                 fsmRef.EnterState(3);
             }

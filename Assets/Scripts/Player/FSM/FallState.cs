@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace Player
 {
     public class FallState : AbstractState
@@ -26,6 +27,7 @@ namespace Player
             CheckInput();
         }
 
+        //World input, not player's.
         private void CheckInput()
         {
             properties.isGrounded = Physics.CheckSphere(properties.groundCheck.position, properties.groundCheckRad, properties.groundMask);
