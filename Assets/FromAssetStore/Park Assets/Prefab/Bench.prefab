@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 7190407247492164343}
   - component: {fileID: 7190407247493294135}
   - component: {fileID: 3835213079196834051}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bench
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7190407247491394263
 Transform:
@@ -55,10 +55,11 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 97624b71c12bc624ba1e7148e6470055, type: 2}
+  - {fileID: 2100000, guid: 1e3c1f1a7328e914e9a1a58d9caf2c97, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,7 +90,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 30d872e7273ede5469e4fa7526c55130, type: 3}
